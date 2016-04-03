@@ -1,108 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+---
+layout: default
+---
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<div class="home">
 
-    <title>Blend&#39;it by blendit</title>
-  </head>
+  <h1 class="page-heading">Posts</h1>
 
-  <body>
-    <header>
-      <div class="inner">
-        <h1>Blend&#39;it</h1>
-        <h2>Open-source crowd and world generator for blender3D</h2>
-        <a href="https://github.com/blendit" class="button"><small>Follow me on</small> GitHub</a>
-      </div>
-    </header>
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>
-<a id="welcome-to-blendit-pages" class="anchor" href="#welcome-to-blendit-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to Blend'it pages.</h1>
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
 
-<p>We are 9 Master students in the ENS Lyon. We will be working on the development of Python scripts and add-ons to Blender, to produce realistic crowd and swarm generators, as well as environment generators. </p>
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
-<p>Below are some pictures taken from articles presenting techniques we would like to add to Blender:</p>
-
-<h3>
-<a id="crowd-generation" class="anchor" href="#crowd-generation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Crowd generation</h3>
-
-<p>Real crossing in Tokyo, Japan:</p>
-
-<p><img src="https://raw.githubusercontent.com/blendit/blendit.github.io/master/images/PLE-2.png" alt="Real crossing in Tokyo, Japan"></p>
-
-<p>Simulated crowd  <a href="http://gamma.cs.unc.edu/PLE/">"PLEdestrians: A Least-Effort Approach to Crowd Simulation", Stephen J. Guy et al</a>:</p>
-
-<p><img src="https://raw.githubusercontent.com/blendit/blendit.github.io/master/images/PLE-1.png" alt="Simulated crowd presented in http://gamma.cs.unc.edu/PLE/"></p>
-
-<h3>
-<a id="environment-generation" class="anchor" href="#environment-generation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Environment generation</h3>
-
-<p>Image taken from <a href="https://graphics.tudelft.nl/Publications-new/2011/STDB11a/STDB11a.pdf">"A declarative approach to procedural modeling of virtual worlds", Smelik et al.</a>:</p>
-
-<p><img src="https://raw.githubusercontent.com/blendit/blendit.github.io/master/images/env1.jpg" alt='Image taken from "A declarative approach to procedural modeling of virtual worlds", Smelik et al.'></p>
-
-<h2>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h2>
-
-<ul>
-<li><a href="https://github.com/coma94" class="user-mention">@coma94</a></li>
-<li><a href="https://github.com/d1laj" class="user-mention">@d1laj</a></li>
-<li><a href="https://github.com/rmonat" class="user-mention">@rmonat</a></li>
-<li><a href="https://github.com/vlutfall" class="user-mention">@vlutfall</a></li>
-<li><a href="https://github.com/joseif" class="user-mention">@joseif</a></li>
-<li><a href="https://github.com/omariott" class="user-mention">@omariott</a></li>
-<li><a href="https://github.com/PijusSimonaitis" class="user-mention">@PijusSimonaitis</a></li>
-<li><a href="https://github.com/gullcomb" class="user-mention">@gullcomb</a></li>
-<li><a href="https://github.com/bboisson" class="user-mention">@bboisson</a></li>
-</ul>
-
-<h2>
-<a id="work-packages-in-bold-the-head-of-each-work-package" class="anchor" href="#work-packages-in-bold-the-head-of-each-work-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Work packages (in <strong>bold</strong>, the head of each Work Package)</h2>
-
-<ul>
-<li>Communication <a href="https://github.com/coma94" class="user-mention">@coma94</a>, <a href="https://github.com/joseif" class="user-mention">@joseif</a>, <strong><a href="https://github.com/rmonat" class="user-mention">@rmonat</a></strong>
-</li>
-<li>Blender Code <strong><a href="https://github.com/coma94" class="user-mention">@coma94</a></strong>, <a href="https://github.com/PijusSimonaitis" class="user-mention">@PijusSimonaitis</a>, <a href="https://github.com/rmonat" class="user-mention">@rmonat</a>
-</li>
-<li>Bibliography on crowds <a href="https://github.com/d1laj" class="user-mention">@d1laj</a>, <strong><a href="https://github.com/joseif" class="user-mention">@joseif</a></strong>, <a href="https://github.com/vlutfall" class="user-mention">@vlutfall</a>
-</li>
-<li>Bibliography on environments <a href="https://github.com/bboisson" class="user-mention">@bboisson</a>, <strong><a href="https://github.com/gullcomb" class="user-mention">@gullcomb</a></strong>, <a href="https://github.com/omariott" class="user-mention">@omariott</a>
-</li>
-<li>Crowds plugin development <a href="https://github.com/d1laj" class="user-mention">@d1laj</a>, <a href="https://github.com/coma94" class="user-mention">@coma94</a>, <strong><a href="https://github.com/joseif" class="user-mention">@joseif</a></strong>, <a href="https://github.com/PijusSimonaitis" class="user-mention">@PijusSimonaitis</a>, <a href="https://github.com/vlutfall" class="user-mention">@vlutfall</a>
-</li>
-<li>Environment plugin development <a href="https://github.com/bboisson" class="user-mention">@bboisson</a>, <a href="https://github.com/coma94" class="user-mention">@coma94</a>, <strong><a href="https://github.com/gullcomb" class="user-mention">@gullcomb</a></strong>, <a href="https://github.com/omariott" class="user-mention">@omariott</a>, <a href="https://github.com/rmonat" class="user-mention">@rmonat</a> </li>
-<li>GUI development <a href="https://github.com/coma94" class="user-mention">@coma94</a>, <a href="https://github.com/gullcomb" class="user-mention">@gullcomb</a>, <strong><a href="https://github.com/vlutfall" class="user-mention">@vlutfall</a></strong>
-</li>
-<li>Trailer <a href="https://github.com/d1laj" class="user-mention">@d1laj</a>, <strong><a href="https://github.com/coma94" class="user-mention">@coma94</a></strong>, <a href="https://github.com/joseif" class="user-mention">@joseif</a>
-</li>
-</ul>
-
-<h2>
-<a id="support-and-contact" class="anchor" href="#support-and-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support and Contact</h2>
-
-<p>Please get in touch with <a href="https://github.com/rmonat" class="user-mention">@rmonat</a> if you want more informations concerning this project. We are always interested in new ideas, and Blender artists to test our scripts. </p>
-        </section>
-
-        <aside id="sidebar">
-
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
-    </div>
-
-  
-  </body>
-</html>
+</div>
