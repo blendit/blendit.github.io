@@ -3,13 +3,13 @@ layout: post
 title:  "General presentation!"
 ---
 
-### General objective of this project
+## General objective of this project
 
 # Blender
 
 # State of the art
 
-### Work packages
+## Work packages
 
 
 
