@@ -11,9 +11,10 @@ title:  "General presentation!"
 
 ## Work packages
 
+We split our teams into different working packages.
 
 
-* WP1: Communication [coma94](https://github.com/coma94/), [joseif](https://github.com/joseif), [rmonat](https://github.com/rmonat)
+* WP1: Communication [coma94](https://github.com/coma94/), [joseif](https://github.com/joseif), **[rmonat](https://github.com/rmonat)**
 * WP2: Blender Code [coma94](https://github.com/coma94/), [PijusSimonaitis](https://github.com/PijusSimonaitis), [rmonat](https://github.com/rmonat)
 * WP3: Bibliography on crowds [d1laj](https://github.com/d1laj), [joseif](https://github.com/joseif), [vlutfall](https://github.com/vlutfall)
 * WP4: Bibliography on environments [bboisson](https://github.com/bboisson), [gullcomb](https://github.com/gullcomb), [omariott](https://github.com/omariott)
