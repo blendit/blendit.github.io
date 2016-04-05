@@ -19,3 +19,4 @@ github_username:  blendit
 # Build settings
 markdown: kramdown
 <!-- permalink: none -->
+timezone: "Europe/Paris"
