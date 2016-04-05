@@ -43,3 +43,7 @@ We split our teams into different working packages. In bold are the heads of eac
 * [WP7]({% post_url 2016-04-05-wp7 %}): GUI development [coma94](https://github.com/coma94/), [rmonat](https://github.com/rmonat), **[vlutfall](https://github.com/vlutfall)**
 * [WP8]({% post_url 2016-04-05-wp8 %}): Trailer [d1laj](https://github.com/d1laj), **[coma94](https://github.com/coma94/)**, [joseif](https://github.com/joseif)
 
+
+## Support and contact
+
+Please get in touch with [rmonat](https://github.com/rmonat) if you want more informations concerning this project.
