@@ -1,0 +1,8 @@
+---
+layout: post
+title: "Working packages on environments generation"
+---
+
+## Bibliography
+
+## Implementation
