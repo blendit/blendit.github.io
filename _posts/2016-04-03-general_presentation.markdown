@@ -5,6 +5,14 @@ title:  "General presentation!"
 
 ## General objective of this project
 
+The goal of this project is to design two open-source plugins for
+Blender, which is a computer graphics software.  One of these plugin
+will be able to render and animate crowds, and the other one to design
+environments by making different elements such as rivers and mountains
+automatically interact to produce realistic scenes. Although this kind
+of software is already developed in the Computer Graphics industry, it
+is often unavailable to the public and not of free use.
+
 # Blender
 
 # State of the art
