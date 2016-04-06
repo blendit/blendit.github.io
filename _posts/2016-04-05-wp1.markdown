@@ -2,3 +2,8 @@
 layout: post
 title:  "Presentation of the Communication Work Package"
 ---
+
+The goal of this package is to handle the advertising of the whole project. It includes:
+* writing the proposal and the reports (mid-year report and final report)
+* taking notes during each meeting
+* creating this website
