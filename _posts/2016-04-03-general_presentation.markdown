@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "General presentation!"
+title:  "General presentation !"
 ---
 
 ## General objective of this project

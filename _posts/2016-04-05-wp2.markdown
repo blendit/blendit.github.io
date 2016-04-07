@@ -2,3 +2,9 @@
 layout: post
 title:  "Presentation of the Blender Code WP"
 ---
+
+The goal of this work package was to explore the inner workings of
+Blender and its scripting interface. We also presented the Python
+language and the scripting interface of Blender to the whole group. In
+addition to that, we also implemented unitary tests linked to Github,
+as well as coverage tests. 
