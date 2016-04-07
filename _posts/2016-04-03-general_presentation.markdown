@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "General presentation !"
+biblio: "yes"
 ---
 
 ## General objective of this project
@@ -24,6 +25,8 @@ Here is a brief state of the art, more informations will be provided on each wor
 #### Crowds
 
 We mainly based our work on an article called [PLEdestrians A Least-Effort Approach to Crowd Simulation](http://gamma.cs.unc.edu/PLE/) (some images are on the website of the article).
+
+![Image taken from PLEdestrians A Least-Effort Approach to Crowd Simulation]({{ site.url }}/assets/PLE-1.png)
 
 #### Envs
 
