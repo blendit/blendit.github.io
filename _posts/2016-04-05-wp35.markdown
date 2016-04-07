@@ -1,40 +1,152 @@
 ---
 layout: post
 title: "Working packages on crowd simulation"
+biblio: "yes"
 ---
 
-## Bibliography
+
+Bibliography on Crowd animation (WP2)
+=====================================
+
+The goal of this work package is to find how to simulate large crowds in
+a rather realistic manner. After a few researches we have noticed that
+the crowds can be divided into two types: moving crowds and motionless
+crowd. We have decided focus on moving crowds.
+
+There are two major difficulties in the simulation of moving crowds.
+Firstly we have to generate the path that each person will follow. Then
+we have to coordinate the motions of the moving characters (its foots,
+arms, ...) according to their speed, as well as the calculated path and
+the slope.
+
+#### Generation of the path
+
+The strategy used for the crowd simulation is the least-effort approach
+given in [PLE](#ref-PLE).\
+In this algorithm each individual has an objective. The trajectory is
+optimised by computing the minimum energy cost in between the starting
+point and the arrival point (the objective). To find this minimum we use
+Euler’s method: at each time step we compute the minimum cost path on a
+small distance. The “far” trajectory is needed for this computation, and
+so we approximate it using a graph containing the allowed positions on
+the environment, the “far” trajectory is just a min-cost path on the
+graph. By iterating, this method provides us a set of points that
+describe the path followed by each character.
+
+This algorithm takes into account of the velocity of each character. And
+the velocities are chosen so that there is no collision between two
+characters, and between a character and the environment.
+
+The reachable points on the environment are described by a level map,
+and by a set of polygons excluding some zones. A graph is used, as we
+said before, to approximate the remaining distances. Its edges are
+weighted by the distances between two points. Each character can go to
+different vertices.
+
+In order to have an easy way to move large crowds (and not have to set
+individual objectives to hundreds of people) we decided to allocate to
+each set of characters a set of points of interest with a given
+probability to go to one of them. For the sake of simplicity, we will
+start with only one goal per character.
+
+We also thought about how to take into account the altitude of the
+world. For example, if there is a mountain, it is sometime more
+efficient to bypass it. The idea we had for that is to modify the weight
+of the edges in function of the height of the point.
+
 
 ## Motions of the characters
 
 Simulating the motion of characters seems to be really difficult in Blender, and we did not really anticipate that this would be so difficult. As a result, Victor and Pijus have been finalising the bibliographical part for some time, even if the rest of the work package moved to the implementation part.
 
 
-The first goal of this group was to find out what was already done in Blender concerning automatic walking. All Blender-related resources on walking animation are gathered on a web-page[^blwikiwalking]. Walk-o-matic and stride add-ons were used in previous versions of Blender to ``help to interactively design rough passes of a walk'' and ``quickly create cycles for background or extra characters'', however both are broken on Blender 2.7 (we are using Blender 2.76). Walk-o-matic was still working on 2.67 and parts of its script might be reused.
+The first goal of this group was to find out what was already done in Blender concerning automatic walking. All Blender-related resources on walking animation are gathered on a web-page[blwikiwalking](#ref-blwikiwalking). Walk-o-matic and stride add-ons were used in previous versions of Blender to "help to interactively design rough passes of a walk" and "quickly create cycles for background or extra characters", however both are broken on Blender 2.7 (we are using Blender 2.76). Walk-o-matic was still working on 2.67 and parts of its script might be reused.
 
-A more theoretical survey of Computer animation of Human walking can be found in [^th_walking], Victor did more research on this topic. However during the discussions we have decided that realistic motion itself is not our highest priority and we should start with a very basic motion that would not depend on some sophisticated properties of blender as this might make it incompatible with further versions.
+A more theoretical survey of Computer animation of Human walking can be found in [th_walking](#ref-th_walking), Victor did more research on this topic. However during the discussions we have decided that realistic motion itself is not our highest priority and we should start with a very basic motion that would not depend on some sophisticated properties of blender as this might make it incompatible with further versions.
 
-Thus we have shifted our attention to the basic animations of walk cycles. To begin with, we have analysed lots of tutorials for blender character animation. The best detailed one is available on YouTube [^tuto_walk].
+Thus we have shifted our attention to the basic animations of walk cycles. To begin with, we have analysed lots of tutorials for blender character animation. The best detailed one is available on YouTube [tuto_walk](#ref-tuto_walk).
 
 
 Now, after learning to create basic animations by hand, we are in the position to start coding: given the set of points we have to interpolate a path passing through them and make our character follow this path while adapting its speed between the points. During the last meeting we found out how to create a path we want.
 
-There is a manual for Moving Objects on a Path available on Blender's website [^manual_moving]. There are at least three ways to move objects around, we will probably choose ``The Follow Path Constraint'' as it is the most conventional one, however ``The Clamp To Constraint'' is not yet ruled out.
+There is a manual for Moving Objects on a Path available on Blender's website [manual_moving](#ref-manual_moving). There are at least three ways to move objects around, we will probably choose "The Follow Path Constraint" as it is the most conventional one, however "The Clamp To Constraint" is not yet ruled out.
 
 
 
 
-## Implementation
+Crowd plugin development (WP4)
+==============================
+
+#### Generation of the path
+
+ 
+
+The algorithm of least-effort approach is divided in many points.
+
+-   Computing an approxiamation graph to give an indication of the
+    distance remaning to travel to the goal of the individual. We
+    englobe the whole ground zone with a grid of a given mesh to
+    reprensent this graph.
+
+-   Finding the exclusion zones that cannot be crossed by the
+    individuals of the crowd. They will be given by a set of polygon
+    that will be projet on the surface where the individual travel.
+
+-   Computation of the authorised velocity field that will be
+    collinsion proof. This will be done by an approximation algorithm
+    that will represent the field by an intersection of half-planes.
+
+-   Computation of the best velocity to choose by doing minimum on a
+    graph with the $A*$ algorithm to approximate the remaning distance
+    after traveling during dt at this velocity.
+
+-   Update of the graph with the attribution of a new weight on the
+    edges: each character affect the weight of its neighbour edges to
+    represent conjection. The way we will do this is still not fixed and
+    will be decided by trying impericactly some ways.
+
+We also started coding the classes that we will use (summarised on
+Figure \[crowd\_classes\]):
+
+Graph
+
+:   This class describes the graph that was set up, with a set of nodes
+    and a dictionary of dictionaries of edges.
+
+Individual
+
+:   This class describe an individual within the crowd. It includes the
+    position, maximal speed, optimal speed, trajectory and some
+    variables to compute the energy of the individual.
+
+Crowd
+
+:   contains a set of individuals and the graph.
+
+Environment
+
+:   gives the set of forbidden regions.
+
+Blend
+
+:   These are the classes using Blender. They take the corresponding
+    “non-blend” class and convert it into a Blender object, usable
+    in Blender.
+
+We also try to keep as much code as possible independent from Blender.
+It will lead to easier tests and a more portable code from Blender to
+another 3D software.
+
+![Classes of `crowd plug-in` and relations between them.<span
+data-label="crowd_classes"></span>](crowd_final.pdf)
+
+#### Motions of the characters {#motions-of-the-characters}
+
+ 
+
+As stated in the paragraph \[WP2\_motion\], the bibliographical work on
+the animation of characters was longer than expected and is currently
+being finalised: the implementation part has yet not begun.
 
 
 
-
-## References
-
-[^blwikiwalking]
-
-[^th_walking]
-
-[^tuto_walk]
-
-[^manual_moving]
