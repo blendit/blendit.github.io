@@ -15,6 +15,7 @@ of software is already developed in the Computer Graphics industry, it
 is often unavailable to the public and not of free use.
 
 ![Rendering from the Hobbit]({{ site.url }}/assets/hobbit.png)
+Scene taken from The Hobbit
 
 
 ### Blender
@@ -32,7 +33,7 @@ We mainly based our work on an article called [PLEdestrians A Least-Effort Appro
 
 
 ![Simulated crowd from PLE]({{ site.url }}/assets/PLE-1.png) | ![Real scene]({{ site.url }}/assets/PLE-2.png) 
-
+Simulated crowd from PLE | Real scene
 
 
 #### Envs
@@ -41,6 +42,7 @@ We thought the ideas presented in ["A declarative approach to procedural modelin
 
 ![Simulated crowd from "A declarative approach to procedural modeling of virtual worlds"]({{ site.url }}/assets/env1.jpg)
 
+Simulated crowd from "A declarative approach to procedural modeling of virtual worlds"
 
 ## Work packages
 
