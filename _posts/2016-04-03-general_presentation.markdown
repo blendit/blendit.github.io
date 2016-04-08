@@ -14,6 +14,9 @@ automatically interact to produce realistic scenes. Although this kind
 of software is already developed in the Computer Graphics industry, it
 is often unavailable to the public and not of free use.
 
+![Rendering from the Hobbit]({{ site.url }}/assets/hobbit.png)
+
+
 ### Blender
 
 Blender is a free software of 3D animation. See [their website](blender.org).
@@ -26,11 +29,18 @@ Here is a brief state of the art, more informations will be provided on each wor
 
 We mainly based our work on an article called [PLEdestrians A Least-Effort Approach to Crowd Simulation](http://gamma.cs.unc.edu/PLE/) (some images are on the website of the article).
 
-![Image taken from PLEdestrians A Least-Effort Approach to Crowd Simulation]({{ site.url }}/assets/PLE-1.png)
+
+
+![Simulated crowd from PLE]({{ site.url }}/assets/PLE-1.png) | ![Real scene]({{ site.url }}/assets/PLE-2.png) 
+
+
 
 #### Envs
 
 We thought the ideas presented in ["A declarative approach to procedural modeling of virtual worlds", Smelik et al](https://graphics.tudelft.nl/Publications-new/2011/STDB11a/STDB11a.pdf) were really interesting, and we tried to implement the same ideas into blender.
+
+![Simulated crowd from "A declarative approach to procedural modeling of virtual worlds"]({{ site.url }}/assets/env1.jpg)
+
 
 ## Work packages
 
